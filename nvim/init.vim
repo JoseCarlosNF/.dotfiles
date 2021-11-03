@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 " Servidor para autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'honza/vim-snippets'
 
 " Alinha facil: alinhador de conteúdo
 Plug 'junegunn/vim-easy-align'
