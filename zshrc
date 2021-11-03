@@ -7,6 +7,10 @@ fi
 
 # -------------------------------- EVIRONMENT ----------------------------------
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 export PYENV_ROOT=$HOME/.pyenv
 export PATH=$HOME/.yarn/bin:$HOME/bin:/usr/local/bin:$PYENV_ROOT/bin:$PATH
 export VAGRANT_DEFAULT_PROVIDER="virtualbox"
@@ -127,9 +131,3 @@ autoload -U compinit && compinit
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
