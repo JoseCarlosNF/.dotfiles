@@ -9,10 +9,11 @@
     ~/.config/kitty:
         path: kitty/
         create: true
+    ~/.config/nvim:
+        path: nvim/
+        create: true
     ~/.zprofile: zprofile
     ~/.zshrc: zshrc
     ~/bin:
         path: bin/
         create: true
-
-
