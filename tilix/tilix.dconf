@@ -1,0 +1,32 @@
+[/]
+control-click-titlebar=true
+quake-specific-monitor=0
+session-name='${title}-${id}'
+sidebar-on-right=false
+terminal-title-style='none'
+use-tabs=true
+window-style='disable-csd-hide-toolbar'
+
+[keybindings]
+app-shortcuts='<Primary>F1'
+
+[profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+background-color='#1D2021'
+background-transparency-percent=10
+badge-color-set=false
+badge-font='VictorMono Nerd Font Mono 12'
+badge-use-system-font=false
+bold-color-set=false
+cursor-blink-mode='off'
+cursor-colors-set=false
+font='VictorMono Nerd Font Mono 12'
+foreground-color='#D4BE98'
+highlight-colors-set=false
+notify-silence-enabled=false
+palette=['#504945', '#FB4934', '#B8BB26', '#FE8019', '#83A598', '#D3869B', '#8EC07C', '#9E7954', '#504945', '#FB4934', '#B8BB26', '#FE8019', '#83A598', '#D3869B', '#8EC07C', '#9E7954']
+scrollback-lines=99999999
+show-scrollbar=false
+terminal-bell='none'
+use-system-font=false
+use-theme-colors=false
+visible-name='Padrão'
