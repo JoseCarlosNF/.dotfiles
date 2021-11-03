@@ -6,6 +6,9 @@
     ~/.ssh/config:
         path: ssh/config
         create: true
+    ~/.config/kitty:
+        path: kitty/
+        create: true
     ~/.zprofile: zprofile
     ~/.zshrc: zshrc
     ~/bin:
