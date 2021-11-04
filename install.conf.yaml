@@ -3,6 +3,7 @@
 - link:
     ~/.profile: profile
     ~/.bashrc: bashrc
+    ~/.tmux.conf: tmux.conf
     ~/.ssh/config:
         path: ssh/config
         create: true
