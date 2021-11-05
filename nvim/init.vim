@@ -173,6 +173,8 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 " TodoComments: configs for todo-comments
+" TODO: nvim-telescope/telescope integration
+" TODO: folke/trouble.nvim integration
 lua << EOF
   require("todo-comments").setup {
     keywords = {
