@@ -32,12 +32,9 @@ Plug 'Yggdroot/indentLine'
 Plug 'hashivim/vim-vagrant'
 Plug 'hashivim/vim-terraform'
 
-" TODO: bonitão
-"Plug 'nvim-lua/plenary.nvim'
-"Plug 'folke/todo-comments.nvim'
-
-""Rainbow Parentheses"
-"Plug 'frazrepo/vim-rainbow'
+" ToDo: bonitão
+Plug 'nvim-lua/plenary.nvim'
+Plug 'folke/todo-comments.nvim'
 
 ""Autoformat suporte para varias linguagens"
 "Plug 'Chiel92/vim-autoformat'
@@ -146,17 +143,6 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Clean'     :'✔︎',
                 \ 'Unknown'   :'',
                 \ }
-
-" Rainbow: Parentheses Improved
-" autocmd FileType c,cpp,python,json,yaml,dockerfile call rainbow#load()
-" let g:rainbow_load_separately = [
-"     \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-"     \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-"     \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
-"     \ ]
-" 
-" let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
-" let g:rainbow_ctermfgs = ['LightBlue', 'DarkGreen', 'Yellow', 'Red', 'Magenta']
 
 " Spell: spellchecker
 highlight SpellCap ctermfg=White ctermbg=DarkBlue
