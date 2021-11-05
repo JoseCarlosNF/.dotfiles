@@ -171,3 +171,36 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 EOF
+
+" TodoComments: configs for todo-comments
+lua << EOF
+  require("todo-comments").setup {
+    keywords = {
+      FIX = { icon = " ", color = "error",
+        alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
+      },
+      TODO = { icon = " ", color = "info" },
+      HACK = { icon = " ", color = "warning" },
+      WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+      PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+      NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+    },
+    merge_keywords = false,
+    highlight = {
+      before = "", -- "fg" or "bg" or empty
+      keyword = "wide", -- "fg", "bg", "wide" or empty
+      after = "fg", -- "fg" or "bg" or empty
+      pattern = [[.*<(KEYWORDS)\s*:]],
+      comments_only = true, -- uses treesitter to match keywords in comments only
+      max_line_len = 400, -- ignore lines longer than this
+      exclude = {}, -- list of file types to exclude highlighting
+    },
+    colors = {
+      error = { "LspDiagnosticsDefaultError", "ErrorMsg", "#fb4934" },
+      warning = { "LspDiagnosticsDefaultWarning", "WarningMsg", "#fabd2f" },
+      info = { "LspDiagnosticsDefaultInformation", "#83a598" },
+      hint = { "LspDiagnosticsDefaultHint", "#8ec07c" },
+      default = { "Identifier"},
+    }
+  }
+EOF
