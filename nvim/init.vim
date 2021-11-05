@@ -63,9 +63,7 @@ set lcs=eol:⏎,tab:->,trail:~,nbsp:⎵,space:·
 nmap <F2> :set invlist<CR>
 imap <F2> <ESC>:set invlist<CR>a
 map <F23> :set hlsearch!<CR>
-" Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 filetype plugin indent on
 
@@ -151,7 +149,7 @@ autocmd FileType text setlocal spell spelllang=pt,en
 autocmd BufNewFile,BufRead *.md,*.txt setlocal spell spelllang=pt,en
 
 " Opções do identador
-let g:indentLine_char_list = ['▏', '¦', '┆', '┊']
+let g:indentLine_char_list = ['▏']
 
 " Pra não ter dor de cabeça com YAML
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
