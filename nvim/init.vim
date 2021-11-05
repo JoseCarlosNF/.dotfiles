@@ -147,7 +147,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Dirty'     :'✗',
                 \ 'Ignored'   :'☒',
                 \ 'Clean'     :'✔︎',
-                \ 'Unknown'   :'?',
+                \ 'Unknown'   :'',
                 \ }
 
 " Rainbow: Parentheses Improved
