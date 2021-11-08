@@ -13,6 +13,14 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   \| Plug 'Xuyuanp/nerdtree-git-plugin'
   \| Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+" Telescope: used in most plugins for better viewr
+" WARN: require nvim-lua/plenary.nvim and nvim-treesitter/nvim-treesitter
+Plug 'nvim-telescope/telescope.nvim'
+
+" Trouble
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'folke/trouble.nvim'
+
 " Tema brabissímo
 Plug 'joshdick/onedark.vim'
 Plug 'sainnhe/gruvbox-material'
@@ -161,6 +169,21 @@ let g:loaded_python_provider = 1
 let g:python3_host_prog = '~/.pyenv/shims/python'
 let g:virtualenv_directory = 'venv'
 let g:python_pep8_indent_hang_closing = 0
+
+" Telescope: configs
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Trouble: configs
+lua << EOF
+  require("trouble").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+EOF
 
 " Treesitter: parse of most languages
 lua <<EOF
