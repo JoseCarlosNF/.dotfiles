@@ -4,6 +4,9 @@
     ~/.profile: profile
     ~/.bashrc: bashrc
     ~/.tmux.conf: tmux.conf
+    ~/.config/bat:
+        path: bat/
+        create: true
     ~/.ssh/config:
         path: ssh/config
         create: true
