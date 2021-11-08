@@ -126,8 +126,8 @@ if command -v exa; then
 fi
 
 # AWS
-alias aws="aws --no-cli-pager"
-alias localstack="aws --profile localstack --endpoint-url http://localhost:4566 --no-cli-pager"
+alias aws="aws"
+alias localstack="aws --profile localstack --endpoint-url http://localhost:4566"
 
 # ---------------------------------- EXTRAS ------------------------------------
 
