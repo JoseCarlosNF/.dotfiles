@@ -121,7 +121,9 @@ alias dsa="docker stop $(docker ps -aq)"
 alias dra="docker rm $(docker ps -aq)"
 alias dc="docker-compose"
 
-alias ls="exa"
+if command -v exa; then
+  alias ls="exa"
+fi
 
 # AWS
 alias aws="aws --no-cli-pager"
