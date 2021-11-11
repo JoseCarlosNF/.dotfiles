@@ -1,23 +1,18 @@
 - clean: ['~']
 
 - link:
-    ~/.profile: profile
-    ~/.bashrc: bashrc
-    ~/.tmux.conf: tmux.conf
-    ~/.config/bat:
-        path: bat/
-        create: true
-    ~/.ssh/config:
-        path: ssh/config
-        create: true
-    ~/.config/kitty:
-        path: kitty/
-        create: true
     ~/.config/nvim:
         path: nvim/
         create: true
-    ~/.zprofile: zprofile
-    ~/.zshrc: zshrc
-    ~/bin:
-        path: bin/
-        create: true
+- shell:
+  -
+    command: curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    stdout: true
+    description: install plug (a plugin management)
+  -
+    command: sudo snap install nvim
+    stdin: true
+    stdout: true
+  -
+    command: nvim -c PlugInstall -c q! -c q!
+    stdout: true
