@@ -38,7 +38,9 @@ Plug 'Yggdroot/indentLine'
 
 " Harshicorp:
 Plug 'hashivim/vim-vagrant'
-Plug 'hashivim/vim-terraform'
+
+" Sintaxe para várias linguagens
+Plug 'sheerun/vim-polyglot'
 
 " ToDo: bonitão
 Plug 'nvim-lua/plenary.nvim'
