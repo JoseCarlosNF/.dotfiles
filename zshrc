@@ -121,7 +121,7 @@ alias dsa="docker stop $(docker ps -aq)"
 alias dra="docker rm $(docker ps -aq)"
 alias dc="docker-compose"
 
-if command -v exa; then
+if command -v exa > /dev/null; then
   alias ls="exa"
 fi
 
