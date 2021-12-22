@@ -4,6 +4,10 @@
     ~/.profile: profile
     ~/.bashrc: bashrc
     ~/.tmux.conf: tmux.conf
+    ~/.config/starship.toml: starship.toml
+    ~/.config/fish:
+        path: fish/
+        create: true
     ~/.config/bat:
         path: bat/
         create: true
