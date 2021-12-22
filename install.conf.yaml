@@ -20,6 +20,9 @@
     ~/.config/nvim:
         path: nvim/
         create: true
+    ~/.config/tilix:
+        path: tilix/
+        create: true
     ~/.zprofile: zprofile
     ~/.zshrc: zshrc
     ~/bin:
