@@ -76,15 +76,9 @@ plugins=(
   gh
   git
   git-flow-avh
-  kubectl
-  kubectx
-  minikube
   pyenv
   terraform
-  vagrant
-  yarn
   zsh-completions
-  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -122,7 +116,7 @@ alias dra="docker rm $(docker ps -aq)"
 alias dc="docker-compose"
 
 if command -v exa > /dev/null; then
-  alias ls="exa"
+  alias ls="exa --icons"
 fi
 
 # AWS
