@@ -3,6 +3,9 @@ call plug#begin('~/.vim/plugged')
 " LSP
 Plug 'neovim/nvim-lspconfig'
 
+" Autopairs
+Plug 'windwp/nvim-autopairs'
+
 " NERDTree. Mas, só carrega quando pede
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   \| Plug 'Xuyuanp/nerdtree-git-plugin'
