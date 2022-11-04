@@ -1,30 +1,34 @@
 call plug#begin('~/.vim/plugged')
 
-" Servidor para autocomplete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'honza/vim-snippets'
-
-" Alinha facil: alinhador de conteúdo
+" EasyAlign
 Plug 'junegunn/vim-easy-align'
+
+" Search
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+
+" Autopairs
+Plug 'windwp/nvim-autopairs'
+
+" Autocomplete
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/nvim-cmp'
+
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " NERDTree. Mas, só carrega quando pede
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   \| Plug 'Xuyuanp/nerdtree-git-plugin'
   \| Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-" Telescope: used in most plugins for better viewr
-" WARN: require nvim-lua/plenary.nvim and nvim-treesitter/nvim-treesitter
-Plug 'nvim-telescope/telescope.nvim'
-
-" Trouble
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'folke/trouble.nvim'
-
 " Tema brabissímo
-Plug 'joshdick/onedark.vim'
 Plug 'sainnhe/gruvbox-material'
-Plug 'olimorris/onedarkpro.nvim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 " Aquele status bunitu
 Plug 'vim-airline/vim-airline'
@@ -33,23 +37,10 @@ Plug 'vim-airline/vim-airline-themes'
 " Pack de icones, pra ficar xuxuzinho
 Plug 'ryanoasis/vim-devicons'
 
-"" Sinalizador de identação
-Plug 'Yggdroot/indentLine'
-
-" Harshicorp:
-Plug 'hashivim/vim-vagrant'
-
-" Sintaxe para várias linguagens
-Plug 'sheerun/vim-polyglot'
-
-" ToDo: bonitão
-Plug 'nvim-lua/plenary.nvim'
-Plug 'folke/todo-comments.nvim'
-
-""Autoformat suporte para varias linguagens"
-"Plug 'Chiel92/vim-autoformat'
-
 call plug#end()
+
+"                              Load: Lua configs
+lua require('joselito')
 
 "                            General: configurations
 set tabstop=2
@@ -59,12 +50,15 @@ set expandtab
 set nrformats+=alpha
 
 set encoding=utf-8
-set textwidth=80
+set textwidth=79
 set cursorline
 set number
 set relativenumber
 set linebreak
 set mouse=a
+
+set ignorecase
+set smartcase
 
 syntax enable
 set lcs=eol:⏎,tab:->,trail:~,nbsp:⎵,space:·
@@ -76,16 +70,6 @@ map <F23> :set hlsearch!<CR>
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 filetype plugin indent on
-
-" CoC: Shortcut to autocomplete
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Onedark: 
-" let g:onedark_hide_endofbuffer=0
-" let g:onedark_termcolors=256
-" let g:onedark_terminal_italics=1
-" let g:airline_theme='onedark'
-" colorscheme onedark
 
 " Gruvbox: Options
 if has('termguicolors')
@@ -153,81 +137,13 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ }
 
 " Spell: spellchecker
-highlight SpellCap ctermfg=White ctermbg=DarkBlue
-highlight SpellBad ctermfg=White ctermbg=DarkRed 
+highlight SpellBad gui=undercurl guifg=Red guisp=Red cterm=undercurl ctermfg=White ctermbg=DarkRed
+" highlight SpellBad cterm=undercurl ctermfg=White ctermbg=DarkRed 
 autocmd FileType text setlocal spell spelllang=pt,en
 autocmd BufNewFile,BufRead *.md,*.txt setlocal spell spelllang=pt,en
 
-" Opções do identador
-let g:indentLine_char_list = ['▏']
 
-" Pra não ter dor de cabeça com YAML
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
-set foldlevelstart=20
-
-" Python: provider
-let g:loaded_python_provider = 1
-let g:python3_host_prog = '~/.pyenv/shims/python'
-let g:virtualenv_directory = 'venv'
-let g:python_pep8_indent_hang_closing = 0
-
-" Telescope: configs
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-" Trouble: configs
-lua << EOF
-  require("trouble").setup {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  }
-EOF
-
-" Treesitter: parse of most languages
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
-  highlight = {
-    enable = true
-  }
-}
-EOF
-
-" TodoComments: configs for todo-comments
-" TODO: nvim-telescope/telescope integration
-" TODO: folke/trouble.nvim integration
-lua << EOF
-  require("todo-comments").setup {
-    keywords = {
-      FIX = { icon = " ", color = "error",
-        alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
-      },
-      TODO = { icon = " ", color = "info" },
-      HACK = { icon = " ", color = "warning" },
-      WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
-      PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-      NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
-    },
-    merge_keywords = false,
-    highlight = {
-      before = "", -- "fg" or "bg" or empty
-      keyword = "wide", -- "fg", "bg", "wide" or empty
-      after = "fg", -- "fg" or "bg" or empty
-      pattern = [[.*<(KEYWORDS)\s*:]],
-      comments_only = true, -- uses treesitter to match keywords in comments only
-      max_line_len = 400, -- ignore lines longer than this
-      exclude = {}, -- list of file types to exclude highlighting
-    },
-    colors = {
-      error = { "LspDiagnosticsDefaultError", "ErrorMsg", "#fb4934" },
-      warning = { "LspDiagnosticsDefaultWarning", "WarningMsg", "#fabd2f" },
-      info = { "LspDiagnosticsDefaultInformation", "#83a598" },
-      hint = { "LspDiagnosticsDefaultHint", "#8ec07c" },
-      default = { "Identifier"},
-    }
-  }
-EOF
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)

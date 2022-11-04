@@ -1,7 +1,14 @@
+source ~/.asdf/asdf.fish
 # Alias
 alias dc "docker-compose"
 alias ls "exa --icons"
 alias tf "terraform"
+alias :q "exit"
+alias k "kubectl"
+alias kaf "kubectl apply -f"
+alias kdf "kubectl delete -f"
+alias kg "kubectl get"
+alias kd "kubectl describe"
 alias localstack "aws --profile localstack --endpoint-url http://localhost:4566"
 
 # Remove welcome to fish
@@ -11,8 +18,8 @@ set fish_greeting
 set -Ux EDITOR nvim
 set -Ux VAGRANT_DEFAULT_PROVIDER "virtualbox"
 set -Ux PAGER less
-set NVM_DIR "$HOME/.nvm"
-set PYENV_ROOT "$HOME/.pyenv"
+#set NVM_DIR "$HOME/.nvm"
+#set PYENV_ROOT "$HOME/.pyenv"
 
 # Configure Jump
 status --is-interactive
@@ -41,12 +48,18 @@ set -g fish_color_user brgreen
 set -g fish_color_valid_path --underline
 
 # PATH
+#fish_add_path -U "$HOME/.krew/bin"
 fish_add_path -U "$HOME/.tfenv/bin"
 fish_add_path -U "$HOME/.yarn/bin"
 fish_add_path -U "$HOME/bin"
 fish_add_path -U "/usr/local/bin"
-fish_add_path -U $NVM_DIR
-fish_add_path -U "$PYENV_ROOT/shims"
+fish_add_path -U "$HOME/.local/bin"
+#fish_add_path -U $NVM_DIR
+#fish_add_path -U "$PYENV_ROOT/shims"
+#fish_add_path "/var/lib/flatpak/exports/bin"
+
+# AWS-CLI enable auto-complete
+complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 
 # Init Starship
 starship init fish | source

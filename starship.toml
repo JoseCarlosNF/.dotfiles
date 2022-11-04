@@ -2,7 +2,7 @@ add_newline = true
 
 # ~/.config/starship.toml
 format = """
-[$directory](fg:6) $git_branch$git_status$git_commit[$time](fg:15 bold)
+[$directory](fg:6) $hostname $git_branch$git_status$git_commit[$time](fg:15 bold)
 $python$character
 """
 
@@ -22,6 +22,8 @@ disabled = true
 home_symbol = ""
 truncation_length = 1
 format = "[$path](fg:0 bg:6 bold)[$read_only]($read_only_style)"
+read_only = " "
+read_only_style = "fg:0 bg:6 bold"
 
 [time]
 disabled = false
@@ -30,3 +32,7 @@ format = "[$time](fg:0 bg:15 bold)"
 [python]
 detect_extensions = [".python-version", "Pipfile", "__init__.py", "pyproject.toml", "requirements.txt", "setup.py", "tox.ini"]
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[hostname]
+ssh_only = true
+format = "[](fg:3)[$hostname](fg:0 bg:3 bold)[](fg:3)"
