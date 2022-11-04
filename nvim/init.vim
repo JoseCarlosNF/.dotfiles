@@ -1,10 +1,25 @@
 call plug#begin('~/.vim/plugged')
 
+" EasyAlign
+Plug 'junegunn/vim-easy-align'
+
+" Search
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 " LSP
 Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
 
 " Autopairs
 Plug 'windwp/nvim-autopairs'
+
+" Autocomplete
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/nvim-cmp'
+
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " NERDTree. Mas, só carrega quando pede
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -13,6 +28,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " Tema brabissímo
 Plug 'sainnhe/gruvbox-material'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 " Aquele status bunitu
 Plug 'vim-airline/vim-airline'
@@ -34,12 +50,15 @@ set expandtab
 set nrformats+=alpha
 
 set encoding=utf-8
-set textwidth=80
+set textwidth=79
 set cursorline
 set number
 set relativenumber
 set linebreak
 set mouse=a
+
+set ignorecase
+set smartcase
 
 syntax enable
 set lcs=eol:⏎,tab:->,trail:~,nbsp:⎵,space:·
@@ -118,7 +137,13 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ }
 
 " Spell: spellchecker
-highlight SpellCap ctermfg=White ctermbg=DarkBlue
-highlight SpellBad ctermfg=White ctermbg=DarkRed 
+highlight SpellBad gui=undercurl guifg=Red guisp=Red cterm=undercurl ctermfg=White ctermbg=DarkRed
+" highlight SpellBad cterm=undercurl ctermfg=White ctermbg=DarkRed 
 autocmd FileType text setlocal spell spelllang=pt,en
 autocmd BufNewFile,BufRead *.md,*.txt setlocal spell spelllang=pt,en
+
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
