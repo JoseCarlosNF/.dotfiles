@@ -26,8 +26,6 @@
     ~/.config/tilix:
         path: tilix/
         create: true
-    ~/.zprofile: zprofile
-    ~/.zshrc: zshrc
     ~/bin:
         path: bin/
         create: true
