@@ -17,6 +17,9 @@
     ~/.config/kitty:
         path: kitty/
         create: true
+    ~/.config/alacritty:
+        path: alacritty/
+        create: true
     ~/.config/nvim:
         path: nvim/
         create: true
