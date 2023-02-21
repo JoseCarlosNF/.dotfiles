@@ -1,0 +1,6 @@
+nvim/spell
+bin
+fish/fish_variables
+fish/functions
+fish/conf.d
+nvim/plugin

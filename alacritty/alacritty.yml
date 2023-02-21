@@ -1,0 +1,21 @@
+font:
+  size: 11
+  normal:
+    family: VictorMono NF
+    style: Regular
+  bold:
+    family: VictorMono NF
+    style: Bold
+  italic:
+    family: VictorMono NF
+    style: Oblique
+
+window:
+  opacity: 0.9
+  decorations: none
+
+shell:
+  program: /bin/fish
+
+import:
+  - ~/.alacritty-colorscheme/themes/gruvbox_dark.yaml
