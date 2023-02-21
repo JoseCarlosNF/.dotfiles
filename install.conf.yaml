@@ -11,9 +11,6 @@
     ~/.config/bat:
         path: bat/
         create: true
-    ~/.ssh/config:
-        path: ssh/config
-        create: true
     ~/.config/kitty:
         path: kitty/
         create: true
