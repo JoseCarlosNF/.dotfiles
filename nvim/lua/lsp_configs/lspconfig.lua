@@ -1,4 +1,7 @@
 local nvim_lsp = require('lspconfig')
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -31,9 +34,20 @@ local on_attach = function(client, bufnr)
 end
 
 -- Servers
-local servers = { 'pyright' }
+local servers = {'pyright', 'clangd', 'terraformls', 'dockerls', 'prosemd_lsp', 'eslint'}
 
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {}
-  on_attach = on_attach
-end
+-- https://github.com/microsoft/pyright
+nvim_lsp.pyright.setup({
+    before_init = function(_, config)
+        local p
+        if vim.env.VIRTUAL_ENV then
+            p = lsp_util.path.join(vim.env.VIRTUAL_ENV, "bin", "python3")
+        else
+            p = utils.find_cmd("python3", "venv/bin", config.root_dir)
+        end
+        config.settings.python.pythonPath = p
+    end,
+    settings = {
+        disableOrganizeImports = true,
+    },
+})
