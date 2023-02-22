@@ -1,0 +1,13 @@
+# General Options
+set main-view-date = custom
+set main-view-date-format = "%Y-%m-%d"
+set main-view = date:relative author:full commit-title:graph=true,refs=true
+set vertical-split = false
+
+# General colors
+color cursor            0   2  bold
+color title-focus       15  4
+color title-blur        15  4
+
+# Main view colors
+color main.cursor       0   2  bold

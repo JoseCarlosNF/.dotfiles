@@ -5,6 +5,7 @@
     ~/.bashrc: bashrc
     ~/.tmux.conf: tmux.conf
     ~/.config/starship.toml: starship.toml
+    ~/.tigrc: tigrc
     ~/.config/fish:
         path: fish/
         create: true
