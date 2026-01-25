@@ -2,7 +2,7 @@ add_newline = true
 
 # ~/.config/starship.toml
 format = """
-[$directory](fg:6) $hostname $git_branch$git_status$git_commit[$time](fg:7 bold)
+[$directory](fg:6) $hostname $git_branch$git_status$git_commit$kubernetes[$time](fg:7 bold) $username
 $python$character
 """
 
@@ -19,7 +19,7 @@ error_symbol = "[X](bold red) "
 disabled = true
 
 [directory]
-home_symbol = "   "
+home_symbol = "  "
 truncation_length = 1
 format = "[$path](fg:0 bg:6 bold)[$read_only]($read_only_style)"
 read_only = "  "
@@ -27,6 +27,7 @@ read_only_style = "fg:0 bg:6 bold"
 
 [time]
 disabled = false
+time_format = '%F %T %Z'
 format = "[$time](fg:0 bg:7 bold)"
 
 [python]
@@ -36,3 +37,28 @@ format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 [hostname]
 ssh_only = true
 format = "[](fg:3)[$hostname](fg:0 bg:3 bold)[](fg:3)"
+
+[username]
+style_user = 'white bold'
+style_root = 'red bold'
+format = '@[$user]($style) '
+disabled = false
+show_always = true
+aliases = { "corpuser034g" = "matchai" }
+
+[kubernetes]
+format = '[$symbol $cluster in \($namespace\)]($style) '
+disabled = false
+detect_files = ['.k8s']
+
+[[kubernetes.contexts]]
+context_pattern = ".*prod.*"
+style = "bold red"
+
+[[kubernetes.contexts]]
+context_pattern = ".*qa.*"
+style = "yellow"
+
+[[kubernetes.contexts]]
+context_pattern = ".*dev.*"
+style = "green"

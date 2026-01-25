@@ -1,13 +1,13 @@
 font:
-  size: 10
+  size: 12
   normal:
-    family: IosevkaTerm Nerd Font Mono
+    family: monospace
     style: Regular
   bold:
-    family: IosevkaTerm Nerd Font Mono
+    family: monospace
     style: Bold
   italic:
-    family: IosevkaTerm Nerd Font Mono
+    family: monospace
     style: Light Italic
 
 env:
@@ -21,8 +21,5 @@ window:
   opacity: 0.9
   decorations: none
 
-shell:
-  program: /bin/fish
-
 import:
-  - ~/.alacritty-colorscheme/themes/gruvbox_dark.yaml
+  - ~/.alacritty-colorscheme/themes/gruvbox_dark.yml

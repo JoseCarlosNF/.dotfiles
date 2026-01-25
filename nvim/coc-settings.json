@@ -1,0 +1,20 @@
+{
+	"languageserver": {
+		"terraform": {
+			"command": "terraform-ls",
+			"args": ["serve"],
+			"filetypes": [
+				"terraform",
+				"tf"
+			],
+			"initializationOptions": {},
+			"settings": {}
+		}
+	},
+  "pyright.organizeimports.provider": "isort",
+  "pyright.testing.provider": "pytest",
+  "python.formatting.provider": "autopep8",
+  "python.linting.enabled": true,
+  "python.linting.pep8Enabled": false,
+  "snippets.ultisnips.pythonPrompt": false,
+}

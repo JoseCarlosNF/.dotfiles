@@ -1,6 +1,5 @@
-jorgebucaran/fisher
-jethrokuan/z
-edc/bass
 jhillyerd/plugin-git
-decors/fish-colored-man
-jethrokuan/fzf
+jorgebucaran/fisher
+evanlucas/fish-kubectl-completions
+danhper/fish-ssh-agent
+patrickf1/fzf.fish
